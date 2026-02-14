@@ -1,0 +1,77 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`404: Not Found • ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="error-page animate-fade-in">
+				<div class="glow-sphere"></div>
+				<h1 class="gradient-text">404</h1>
+				<h2>Lost in Space?</h2>
+				<p>The page you're looking for has drifted into a black hole or never existed in this dimension.</p>
+				<a href="/" class="btn btn-primary">Return Home</a>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.error-page {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 8rem 0;
+		text-align: center;
+		position: relative;
+	}
+	.error-page h1 {
+		font-size: 10rem;
+		margin: 0;
+		line-height: 1;
+		font-weight: 800;
+	}
+	.error-page h2 {
+		font-size: 3rem;
+		margin-bottom: 1.5rem;
+	}
+	.error-page p {
+		color: var(--text-muted);
+		font-size: 1.25rem;
+		max-width: 500px;
+		margin-bottom: 3rem;
+	}
+	.btn {
+		padding: 1rem 2rem;
+		border-radius: var(--radius-md);
+		font-weight: 600;
+		transition: var(--transition);
+		background: var(--primary);
+		color: white;
+	}
+	.btn:hover {
+		background: var(--primary-hover);
+		transform: translateY(-2px);
+		box-shadow: 0 10px 15px -3px rgba(0, 128, 128, 0.4);
+	}
+	.glow-sphere {
+		position: absolute;
+		width: 300px;
+		height: 300px;
+		background: radial-gradient(circle, var(--primary) 0%, var(--secondary) 100%);
+		border-radius: 50%;
+		filter: blur(100px);
+		opacity: 0.2;
+		z-index: -1;
+	}
+</style>
